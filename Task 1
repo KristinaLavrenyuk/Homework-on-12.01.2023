@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int n;
+    int players[2]{};
+ 
+    int counterPlayers = 0;
+    cin >> n;
+    int one = 0, last = n - 1;
+ 
+    int array[10000]{};
+ 
+    for (int i = 0; i < n; i++)
+    {
+        cin >> array[i];
+    }
+ 
+    for (int i = 0; i < n; i++)
+    {
+        if (counterPlayers == 0)
+        {
+            if (array[one] == array[last] || array[one] > array[last])
+            {
+                players[counterPlayers] += array[one];
+                one++;
+            }
+            else if (array[one] < array[last])
+            {
+                players[counterPlayers] += array[last];
+                last--;
+            }
+            counterPlayers++;
+        }
+        else if (counterPlayers == 1)
+        {
+            if (array[one] == array[last] || array[one] > array[last])
+            {
+                players[counterPlayers] += array[one];
+                one++;
+            }
+            else if (array[one] < array[last])
+            {
+                players[counterPlayers] += array[last];
+                last--;
+            }
+            counterPlayers--;
+        }
+    }
+ 
+    cout << players[0] << ':' << players[1] << endl;
+    system("pause");
+}
