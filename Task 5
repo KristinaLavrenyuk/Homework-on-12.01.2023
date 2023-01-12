@@ -1,0 +1,118 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+
+    char desSc[100][100]{};
+    int mn[100][100]{};
+    int ans = 0;
+    int flag = 0;
+
+    for (int c = 0; c < 2; c++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if (c == 0) cin >> desSc[i][j];
+                else cin >> mn[i][j];
+            }
+        }
+    }
+
+    for (int i = 0; i < n && flag == 0; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (mn[i][j] == 0)
+            {
+                if (desSc[i][j] == '.') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 1)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'B') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 2)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'G') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 3)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'B' || desSc[i][j] == 'G') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 4)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'R') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 5)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'R' || desSc[i][j] == 'B') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 6)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'R' || desSc[i][j] == 'G') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+            else if (mn[i][j] == 7)
+            {
+                if (desSc[i][j] == '.' || desSc[i][j] == 'R' || desSc[i][j] == 'B' || desSc[i][j] == 'G') ans = 1;
+                else
+                {
+                    ans = 0;
+                    flag = 1;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (ans == 1) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
+    system("pause");
+}
