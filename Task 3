@@ -1,0 +1,20 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int k;
+    cin >> k;
+
+    int x = 0, y = 0, time = 0;
+  
+    time = (k - 1) * 5;
+    x = time / 60;
+    y = time % 60;
+
+    if (x >= 12) cout << "NO" << endl;
+    else cout << x << ' ' << y << endl;
+
+    system("pause");
+}
